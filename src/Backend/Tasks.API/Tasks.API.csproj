@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.2">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
@@ -14,6 +18,7 @@
     <ProjectReference Include="..\..\Shared\Tasks.Communication\Tasks.Communication.csproj" />
     <ProjectReference Include="..\..\Shared\Tasks.Execptions\Tasks.Execptions.csproj" />
     <ProjectReference Include="..\Tasks.Application\Tasks.Application.csproj" />
+    <ProjectReference Include="..\Tasks.Infra\Tasks.Infra.csproj" />
   </ItemGroup>
 
   <ItemGroup>

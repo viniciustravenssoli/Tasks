@@ -10,6 +10,13 @@
     <ProjectReference Include="..\..\Shared\Tasks.Communication\Tasks.Communication.csproj" />
     <ProjectReference Include="..\..\Shared\Tasks.Execptions\Tasks.Execptions.csproj" />
     <ProjectReference Include="..\Tasks.Domain\Tasks.Domain.csproj" />
+    <ProjectReference Include="..\Tasks.Infra\Tasks.Infra.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="11.9.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.0" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.4.0" />
   </ItemGroup>
 
 </Project>

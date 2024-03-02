@@ -21,8 +21,4 @@
     <ProjectReference Include="..\Tasks.Infra\Tasks.Infra.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
 </Project>

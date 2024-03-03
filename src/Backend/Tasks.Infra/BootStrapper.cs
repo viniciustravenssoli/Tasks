@@ -10,8 +10,6 @@ using Tasks.Domain.Repositories.User;
 namespace Tasks.Infra;
 public static class BootStrapper
 {
-
-
     public static void AddInfra(this IServiceCollection services, IConfiguration configurationManager)
     {
         AddFluentMigrator(services, configurationManager);

@@ -35,7 +35,7 @@ public class UserRepository : IUserReadOnlyRepository, IUserUpdateOnlyRepository
 
     public async Task<User> GetById(long id)
     {
-        return await _context.Users.FirstOrDefaultAsync(x => x.UserId == id);
+        return await _context.Users.FirstOrDefaultAsync(x => x.Id == id);
     }
 
     public void Update(User user)

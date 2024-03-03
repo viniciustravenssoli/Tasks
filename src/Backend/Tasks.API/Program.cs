@@ -2,7 +2,8 @@ using Tasks.Infra.Migrations;
 using Tasks.Domain.Extensions;
 using Tasks.Infra;
 using Tasks.Infra.RepositoryAccess;
-using Microsoft.EntityFrameworkCore;
+using Tasks.Application;
+using Tasks.API.Filters;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +15,9 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddInfra(builder.Configuration);
+builder.Services.AddApplication(builder.Configuration);
+
+//builder.Services.AddMvc(options => options.Filters.Add(typeof(ExceptionsFilter)));
 
 var app = builder.Build();
 

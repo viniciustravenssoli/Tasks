@@ -16,6 +16,15 @@ public class RegisterUserUseCase : IRegisterUserUseCase
     private readonly PasswordEncryption _passwordEncryption;
     private readonly TokenController _tokenController;
 
+    public RegisterUserUseCase(IUserReadOnlyRepository usuarioReadOnlyRepository, IUserWriteOnlyRepository usuarioRepository, IUnitOfWork unitOfWork, PasswordEncryption passwordEncryption, TokenController tokenController)
+    {
+        _usuarioReadOnlyRepository = usuarioReadOnlyRepository;
+        _usuarioRepository = usuarioRepository;
+        _unitOfWork = unitOfWork;
+        _passwordEncryption = passwordEncryption;
+        _tokenController = tokenController;
+    }
+
     public async Task<ResponseRegisterUser> Execute(RequestRegisterUser request)
     {
         await Validate(request);

@@ -70,6 +70,15 @@ namespace Tasks.Execptions {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Descriçao da tarefa vazia.
+        /// </summary>
+        public static string EmptyDescription {
+            get {
+                return ResourceManager.GetString("EmptyDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Senha Vazia.
         /// </summary>
         public static string EmptyPassword {
@@ -84,6 +93,15 @@ namespace Tasks.Execptions {
         public static string EmptyPhone {
             get {
                 return ResourceManager.GetString("EmptyPhone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Tarefa com nome vazio.
+        /// </summary>
+        public static string EmptyTaskName {
+            get {
+                return ResourceManager.GetString("EmptyTaskName", resourceCulture);
             }
         }
         
@@ -106,6 +124,15 @@ namespace Tasks.Execptions {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Token Expirado.
+        /// </summary>
+        public static string ExpiredToken {
+            get {
+                return ResourceManager.GetString("ExpiredToken", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Login Invalido.
         /// </summary>
         public static string InvalidLogin {
@@ -124,11 +151,29 @@ namespace Tasks.Execptions {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Status invalido.
+        /// </summary>
+        public static string InvalidStatus {
+            get {
+                return ResourceManager.GetString("InvalidStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Formato do Email invalido.
         /// </summary>
         public static string InvalidUserEmail {
             get {
                 return ResourceManager.GetString("InvalidUserEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Sem permissao para esse recurso.
+        /// </summary>
+        public static string NoPerm {
+            get {
+                return ResourceManager.GetString("NoPerm", resourceCulture);
             }
         }
         

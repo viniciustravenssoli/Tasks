@@ -120,11 +120,17 @@
   <data name="EmailAlreadyInUse" xml:space="preserve">
     <value>Email já esta em uso</value>
   </data>
+  <data name="EmptyDescription" xml:space="preserve">
+    <value>Descriçao da tarefa vazia</value>
+  </data>
   <data name="EmptyPassword" xml:space="preserve">
     <value>Senha Vazia</value>
   </data>
   <data name="EmptyPhone" xml:space="preserve">
     <value>Telefone do Usuario em branco</value>
+  </data>
+  <data name="EmptyTaskName" xml:space="preserve">
+    <value>Tarefa com nome vazio</value>
   </data>
   <data name="EmptyUserEmail" xml:space="preserve">
     <value>Email do Usuario em branco</value>
@@ -132,14 +138,23 @@
   <data name="EmptyUserName" xml:space="preserve">
     <value>Nome do Usuario em branco</value>
   </data>
+  <data name="ExpiredToken" xml:space="preserve">
+    <value>Token Expirado</value>
+  </data>
   <data name="InvalidLogin" xml:space="preserve">
     <value>Login Invalido</value>
   </data>
   <data name="InvalidPhone" xml:space="preserve">
     <value>Formato de telefone invalido</value>
   </data>
+  <data name="InvalidStatus" xml:space="preserve">
+    <value>Status invalido</value>
+  </data>
   <data name="InvalidUserEmail" xml:space="preserve">
     <value>Formato do Email invalido</value>
+  </data>
+  <data name="NoPerm" xml:space="preserve">
+    <value>Sem permissao para esse recurso</value>
   </data>
   <data name="PasswordMust6" xml:space="preserve">
     <value>Senha deve conter no minimo seis caracteres</value>

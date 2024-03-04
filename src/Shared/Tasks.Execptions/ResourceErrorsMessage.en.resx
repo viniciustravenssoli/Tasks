@@ -120,11 +120,17 @@
   <data name="EmailAlreadyInUse" xml:space="preserve">
     <value>Email alredy taken</value>
   </data>
+  <data name="EmptyDescription" xml:space="preserve">
+    <value>Empty Description</value>
+  </data>
   <data name="EmptyPassword" xml:space="preserve">
     <value>Empty Password</value>
   </data>
   <data name="EmptyPhone" xml:space="preserve">
     <value>Empty Phone</value>
+  </data>
+  <data name="EmptyTaskName" xml:space="preserve">
+    <value>Empty Task Name</value>
   </data>
   <data name="EmptyUserEmail" xml:space="preserve">
     <value>Empty User Email</value>
@@ -132,14 +138,23 @@
   <data name="EmptyUserName" xml:space="preserve">
     <value>Empty User Name</value>
   </data>
+  <data name="ExpiredToken" xml:space="preserve">
+    <value>Expired Token</value>
+  </data>
   <data name="InvalidLogin" xml:space="preserve">
     <value>Invalid Login</value>
   </data>
   <data name="InvalidPhone" xml:space="preserve">
     <value>Invalid Phone</value>
   </data>
+  <data name="InvalidStatus" xml:space="preserve">
+    <value>Invalid Status</value>
+  </data>
   <data name="InvalidUserEmail" xml:space="preserve">
     <value>Invalid User Email</value>
+  </data>
+  <data name="NoPerm" xml:space="preserve">
+    <value>No Perm to this resource</value>
   </data>
   <data name="PasswordMust6" xml:space="preserve">
     <value>Passoword must have at least 6 </value>

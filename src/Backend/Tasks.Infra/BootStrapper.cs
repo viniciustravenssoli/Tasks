@@ -6,6 +6,7 @@ using System.Reflection;
 using Tasks.Infra.RepositoryAccess;
 using Microsoft.EntityFrameworkCore;
 using Tasks.Domain.Repositories.User;
+using Tasks.Domain.Repositories.Tasks;
 
 namespace Tasks.Infra;
 public static class BootStrapper
@@ -45,6 +46,8 @@ public static class BootStrapper
         services.AddScoped<IUserWriteOnlyRepository, UserRepository>();
         services.AddScoped<IUserUpdateOnlyRepository, UserRepository>();
         services.AddScoped<IUserReadOnlyRepository, UserRepository>();
+        services.AddScoped<ITaskReadOnlyRepository, TaskRepository>();
+        services.AddScoped<ITaskWriteOnlyRepository, TaskRepository>();
         
     }
 }

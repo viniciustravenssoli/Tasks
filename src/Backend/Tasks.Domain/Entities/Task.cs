@@ -1,12 +1,11 @@
-﻿namespace Tasks.Domain.Entities;
-public class Task
+﻿
+namespace Tasks.Domain.Entities;
+public class Task : Base
 {
-    public int TaskId { get; set; }
     public string Name { get; set; }
     public string Description { get; set; }
     public DateTime? StartedAt { get; set; }
     public DateTime? EndedAt { get; set; }
-    public TaskStatus Status { get; set; }
-    public int UserId { get; set; }
-    public User User { get; set; }
+    public Enums.TaskStatus Status { get; set; }
+    public long UserId { get; set; }
 }

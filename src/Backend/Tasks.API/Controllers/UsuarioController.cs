@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Tasks.Application.UseCases.User.Login;
 using Tasks.Application.UseCases.User.Register;
 using Tasks.Communication.Request;
 using Tasks.Communication.Response;
@@ -15,5 +16,16 @@ public class UsuarioController : BaseTaskController
         var result = await useCase.Execute(request);
 
         return Created(string.Empty, result);
+    }
+
+    [Route("Login")]
+    [HttpPost]
+    [ProducesResponseType(typeof(ResponseLogin), StatusCodes.Status200OK)]
+    public async Task<IActionResult> Login([FromBody] RequestLogin request,
+                                           [FromServices] ILoginUseCase useCase)
+    {
+        var response = await useCase.Execute(request);
+
+        return Ok(response);
     }
 }

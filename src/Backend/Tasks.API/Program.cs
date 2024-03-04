@@ -4,6 +4,7 @@ using Tasks.Infra;
 using Tasks.Infra.RepositoryAccess;
 using Tasks.Application;
 using Tasks.API.Filters;
+using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,7 +18,36 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddInfra(builder.Configuration);
 builder.Services.AddApplication(builder.Configuration);
 
-//builder.Services.AddMvc(options => options.Filters.Add(typeof(ExceptionsFilter)));
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddMvc(options => options.Filters.Add(typeof(ExceptionsFilter)));
+
+builder.Services.AddScoped<AuthenticatedUserAttribute>();
+
+builder.Services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "Tasks", Version = "v1" });
+
+    // Configuração para autenticação usando Bearer token (JWT)
+    c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+    {
+        Description = "Token de autorização Bearer no formato JWT",
+        Name = "Authorization",
+        In = ParameterLocation.Header,
+        Type = SecuritySchemeType.ApiKey
+    });
+
+    // Adicione a política de autorização
+    c.AddSecurityRequirement(new OpenApiSecurityRequirement
+        {
+            {
+                new OpenApiSecurityScheme
+                {
+                    Reference = new OpenApiReference { Type = ReferenceType.SecurityScheme, Id = "Bearer" }
+                },
+                new string[] {}
+            }
+        });
+});
 
 var app = builder.Build();
 

@@ -50,7 +50,7 @@ public class RegisterUserUseCase : IRegisterUserUseCase
         };
     }
 
-    private async Task Validate(RequestRegisterUser request)
+    private async System.Threading.Tasks.Task Validate(RequestRegisterUser request)
     {
         var validator = new RegisterUserValidator();
         var result = validator.Validate(request);

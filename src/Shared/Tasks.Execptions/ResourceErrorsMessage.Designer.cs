@@ -61,6 +61,15 @@ namespace Tasks.Execptions {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Senha atual invalida.
+        /// </summary>
+        public static string CurrentPasswordInvalid {
+            get {
+                return ResourceManager.GetString("CurrentPasswordInvalid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Email já esta em uso.
         /// </summary>
         public static string EmailAlreadyInUse {

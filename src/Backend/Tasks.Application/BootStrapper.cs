@@ -7,6 +7,7 @@ using Tasks.Application.UseCases.Task.Delete;
 using Tasks.Application.UseCases.Task.GetAllFromUser;
 using Tasks.Application.UseCases.Task.Register;
 using Tasks.Application.UseCases.Task.Update;
+using Tasks.Application.UseCases.User.ChangePassword;
 using Tasks.Application.UseCases.User.Login;
 using Tasks.Application.UseCases.User.Register;
 
@@ -47,5 +48,6 @@ public static class BootStrapper
         services.AddScoped<IUpdateTaskUseCase, UpdateTaskUseCase>();
         services.AddScoped<IGetAllFromUser, GetAllFromUser>();
         services.AddScoped<IDeleteTaskUseCase, DeleteTaskUseCase>();
+        services.AddScoped<IChangePasswordUseCase, ChangePasswordUseCase>();
     }
 }

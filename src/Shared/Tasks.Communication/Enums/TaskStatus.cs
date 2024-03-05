@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Tasks.Communication.Enums;
 public enum TaskStatus
 {
-    NotStarted,
-    InProgress,
-    Completed
+    NotStarted = 0,
+    InProgress = 1,
+    Completed = 2 
 }

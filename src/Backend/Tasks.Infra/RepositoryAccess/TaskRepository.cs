@@ -2,7 +2,7 @@
 using Tasks.Domain.Repositories.Tasks;
 
 namespace Tasks.Infra.RepositoryAccess;
-public class TaskRepository : ITaskReadOnlyRepository, ITaskWriteOnlyRepository
+public class TaskRepository : ITaskReadOnlyRepository, ITaskWriteOnlyRepository, ITaskUpdateOnlyRepository
 {
     private readonly TaskContext _context;
 
@@ -22,8 +22,18 @@ public class TaskRepository : ITaskReadOnlyRepository, ITaskWriteOnlyRepository
             .Where(x => x.UserId == userId).ToListAsync();
     }
 
-    public async Task<Domain.Entities.Task> GetById(long taskId)
+    async Task<Domain.Entities.Task> ITaskReadOnlyRepository.GetById(long taskId)
     {
         return await _context.Tasks.AsNoTracking().FirstOrDefaultAsync(x => x.Id == taskId);
+    }
+
+    async Task<Domain.Entities.Task> ITaskUpdateOnlyRepository.GetById(long taskId)
+    {
+        return await _context.Tasks.FirstOrDefaultAsync(x => x.Id == taskId);
+    }
+
+    public void Update(Domain.Entities.Task task)
+    {
+        _context.Tasks.Update(task);
     }
 }

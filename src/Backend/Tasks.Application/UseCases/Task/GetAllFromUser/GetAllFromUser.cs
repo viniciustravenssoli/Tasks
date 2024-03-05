@@ -26,6 +26,7 @@ public class GetAllFromUser : IGetAllFromUser
 
         var responseTasks = tasks.Select(x => new ResponseTasks
         {
+            Id = x.Id.ToString(),
             Description = x.Description,
             Name = x.Name,
             Status = (Communication.Enums.TaskStatus)x.Status

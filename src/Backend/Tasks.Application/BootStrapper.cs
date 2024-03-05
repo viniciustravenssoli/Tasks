@@ -3,6 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Tasks.Application.Services.Cryptograpy;
 using Tasks.Application.Services.LoggedUser;
 using Tasks.Application.Services.Token;
+using Tasks.Application.UseCases.Task.Delete;
 using Tasks.Application.UseCases.Task.GetAllFromUser;
 using Tasks.Application.UseCases.Task.Register;
 using Tasks.Application.UseCases.Task.Update;
@@ -45,5 +46,6 @@ public static class BootStrapper
         services.AddScoped<ILoginUseCase, LoginUseCase>();
         services.AddScoped<IUpdateTaskUseCase, UpdateTaskUseCase>();
         services.AddScoped<IGetAllFromUser, GetAllFromUser>();
+        services.AddScoped<IDeleteTaskUseCase, DeleteTaskUseCase>();
     }
 }

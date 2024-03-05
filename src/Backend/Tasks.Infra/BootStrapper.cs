@@ -49,6 +49,5 @@ public static class BootStrapper
         services.AddScoped<ITaskReadOnlyRepository, TaskRepository>();
         services.AddScoped<ITaskWriteOnlyRepository, TaskRepository>();
         services.AddScoped<ITaskUpdateOnlyRepository, TaskRepository>();
-        
     }
 }

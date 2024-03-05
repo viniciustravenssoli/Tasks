@@ -2,4 +2,5 @@
 public interface ITaskWriteOnlyRepository
 {
     Task Add(Entities.Task task);
+    Task Delete(long taskId);
 }

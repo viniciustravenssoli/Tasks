@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Tasks.API.Filters;
+using Tasks.Application.UseCases.Task.Delete;
 using Tasks.Application.UseCases.Task.GetAllFromUser;
 using Tasks.Application.UseCases.Task.Register;
 using Tasks.Application.UseCases.Task.Update;
@@ -35,6 +36,7 @@ public class TaskController : BaseTaskController
     }
 
     [HttpPut]
+    [Route("GetAllFromUser")]
     [ProducesResponseType(typeof(ResponseTaskAllFromUser), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     public async Task<IActionResult> RecuperarDashboard(
@@ -47,6 +49,18 @@ public class TaskController : BaseTaskController
         {
             return Ok(result);
         }
+
+        return NoContent();
+    }
+
+    [HttpDelete]
+    [Route("{id}")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    public async Task<IActionResult> Deletar(
+        [FromServices] IDeleteTaskUseCase useCase,
+        [FromRoute] long id)
+    {
+        await useCase.Executar(id);
 
         return NoContent();
     }

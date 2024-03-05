@@ -36,4 +36,13 @@ public class TaskRepository : ITaskReadOnlyRepository, ITaskWriteOnlyRepository,
     {
         _context.Tasks.Update(task);
     }
+
+    public async Task Delete(long taskId)
+    {
+        var task = await _context.Tasks.FirstOrDefaultAsync(r => r.Id == taskId);
+
+        _context.Tasks.Remove(task);
+    }
+
+
 }

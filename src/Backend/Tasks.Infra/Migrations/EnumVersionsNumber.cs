@@ -8,5 +8,6 @@ namespace Tasks.Infra.Migrations;
 public enum EnumVersionsNumber
 {
     CreateUserTables = 1,
-    CreateTasksTables = 2
+    CreateTasksTables = 2,
+    AlterTableTasks = 3,
 }

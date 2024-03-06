@@ -160,6 +160,15 @@ namespace Tasks.Execptions {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Prioridade invalida.
+        /// </summary>
+        public static string InvalidPriority {
+            get {
+                return ResourceManager.GetString("InvalidPriority", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Status invalido.
         /// </summary>
         public static string InvalidStatus {

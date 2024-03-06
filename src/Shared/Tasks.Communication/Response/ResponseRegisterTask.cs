@@ -12,4 +12,5 @@ public class ResponseRegisterTask
     public DateTime? StartedAt { get; set; }
     public DateTime? EndedAt { get; set; }
     public Enums.TaskStatus Status { get; set; }
+    public Enums.TaskPriority Priority { get; set; }
 }

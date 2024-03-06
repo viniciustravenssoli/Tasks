@@ -8,7 +8,8 @@ public class RegisterTaskValidator : AbstractValidator<RequestRegisterTask>
     public RegisterTaskValidator()
     {
         RuleFor(x => x.Name).NotEmpty().WithMessage(ResourceErrorsMessage.EmptyTaskName);
-        RuleFor(x => x.Status).IsInEnum().WithMessage(ResourceErrorsMessage.InvalidStatus); ;
+        RuleFor(x => x.Status).IsInEnum().WithMessage(ResourceErrorsMessage.InvalidStatus);
+        RuleFor(x => x.Priority).IsInEnum().WithMessage(ResourceErrorsMessage.InvalidPriority);
         RuleFor(x => x.Description).NotEmpty().WithMessage(ResourceErrorsMessage.EmptyDescription); 
     }
 }

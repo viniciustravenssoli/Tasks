@@ -4,7 +4,6 @@ using Tasks.Application.UseCases.Task.Delete;
 using Tasks.Application.UseCases.Task.GetAllFromUser;
 using Tasks.Application.UseCases.Task.Register;
 using Tasks.Application.UseCases.Task.Update;
-using Tasks.Application.UseCases.User.ChangePassword;
 using Tasks.Communication.Request;
 using Tasks.Communication.Response;
 

@@ -150,6 +150,9 @@
   <data name="InvalidPhone" xml:space="preserve">
     <value>Formato de telefone invalido</value>
   </data>
+  <data name="InvalidPriority" xml:space="preserve">
+    <value>Prioridade invalida</value>
+  </data>
   <data name="InvalidStatus" xml:space="preserve">
     <value>Status invalido</value>
   </data>

@@ -21,7 +21,7 @@ public class RegisterTaskUseCase : IRegisterTaskUseCase
 
     public async Task<ResponseRegisterTask> Execute(RequestRegisterTask request)
     {
-        Validate(request);
+        await Validate(request);
 
         var loggedUser = await _loggedUser.GetUser();
 
@@ -33,6 +33,7 @@ public class RegisterTaskUseCase : IRegisterTaskUseCase
             CreatedAt = DateTime.UtcNow,
             Description = request.Description,
             Status = (Domain.Enums.TaskStatus)request.Status,
+            Priority = (Domain.Enums.TaskPriority)request.Priority,
             UserId = (int)loggedUser.Id,
         };
 
@@ -46,6 +47,7 @@ public class RegisterTaskUseCase : IRegisterTaskUseCase
             EndedAt = task.EndedAt,
             Name = task.Name,
             Status = (Communication.Enums.TaskStatus)task.Status,
+            Priority = (Communication.Enums.TaskPriority)(task.Priority)
         };
 
         return response;

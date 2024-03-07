@@ -163,7 +163,10 @@
     <value>No Perm to this resource</value>
   </data>
   <data name="PasswordMust6" xml:space="preserve">
-    <value>Passoword must have at least 6 </value>
+    <value>Passoword must have at least 6</value>
+  </data>
+  <data name="String1" xml:space="preserve">
+    <value />
   </data>
   <data name="TaskNotFound" xml:space="preserve">
     <value>Task Not Found</value>

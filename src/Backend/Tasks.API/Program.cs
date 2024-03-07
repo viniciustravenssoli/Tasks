@@ -5,10 +5,13 @@ using Tasks.Infra.RepositoryAccess;
 using Tasks.Application;
 using Tasks.API.Filters;
 using Microsoft.OpenApi.Models;
+using Tasks.API.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+builder.Services.AddRouting(options => options.LowercaseUrls = true);
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -65,6 +68,8 @@ app.UseAuthorization();
 app.MapControllers();
 
 UpdateDB();
+
+app.UseMiddleware<CultureMiddleware>();
 
 app.Run();
 

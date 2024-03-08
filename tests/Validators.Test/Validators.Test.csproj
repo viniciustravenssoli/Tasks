@@ -22,4 +22,9 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Backend\Tasks.Application\Tasks.Application.csproj" />
+    <ProjectReference Include="..\Util.Test\Util.Test.csproj" />
+  </ItemGroup>
+
 </Project>

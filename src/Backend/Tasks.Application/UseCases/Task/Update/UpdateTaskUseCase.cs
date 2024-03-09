@@ -45,6 +45,9 @@ public class UpdateTaskUseCase : IUpdateTaskUseCase
     {
         switch (requestStatus)
         {
+            case Communication.Enums.TaskStatus.NotStarted:
+                myTask.Status = Domain.Enums.TaskStatus.NotStarted; 
+                break;
             case Communication.Enums.TaskStatus.InProgress:
                 myTask.Status = Domain.Enums.TaskStatus.InProgress;
                 myTask.StartedAt = DateTime.UtcNow;

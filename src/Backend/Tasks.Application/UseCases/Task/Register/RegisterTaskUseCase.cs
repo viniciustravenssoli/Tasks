@@ -42,6 +42,7 @@ public class RegisterTaskUseCase : IRegisterTaskUseCase
 
         var response = new ResponseRegisterTask
         {
+            Id = task.Id.ToString(),
             Description = task.Description,
             StartedAt = task.StartedAt,
             EndedAt = task.EndedAt,

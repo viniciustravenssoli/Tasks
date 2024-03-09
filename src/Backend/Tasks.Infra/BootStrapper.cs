@@ -1,12 +1,12 @@
 ﻿using FluentMigrator.Runner;
-using Tasks.Domain.Extensions;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
-using Tasks.Infra.RepositoryAccess;
-using Microsoft.EntityFrameworkCore;
-using Tasks.Domain.Repositories.User;
+using Tasks.Domain.Extensions;
 using Tasks.Domain.Repositories.Tasks;
+using Tasks.Domain.Repositories.User;
+using Tasks.Infra.RepositoryAccess;
 
 namespace Tasks.Infra;
 public static class BootStrapper
@@ -16,16 +16,29 @@ public static class BootStrapper
         AddFluentMigrator(services, configurationManager);
         AddRepositories(services);
         AddUnitOfWork(services);
-        var connection2 = configurationManager.GetConnection2();
-
-        services.AddDbContext<TaskContext>(
-        options => options.UseMySQL(connection2));
-
+        AddContext(services, configurationManager);
     }
 
     private static void AddUnitOfWork(IServiceCollection services)
     {
         services.AddScoped<IUnitOfWork, UnitOfWork>();
+    }
+
+    private static void AddContext(IServiceCollection services, IConfiguration configurationManager)
+    {
+
+        bool.TryParse(configurationManager.GetSection("Configurations:DbInMemory").Value, out bool dbInMemory);
+
+        if (!dbInMemory)
+        {
+            var serverVersion = new MySqlServerVersion(new Version(8, 0, 20));
+            var connectionString = configurationManager.GetFullConnection();
+
+            services.AddDbContext<TaskContext>(options =>
+            {
+                options.UseMySql(connectionString, serverVersion);
+            });
+        }
     }
 
     private static void AddFluentMigrator(IServiceCollection services, IConfiguration configurationManager)

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 namespace Tasks.Communication.Response;
 public class ResponseRegisterTask
 {
+    public string Id { get; set; }
     public string Name { get; set; }
     public string Description { get; set; }
     public DateTime? StartedAt { get; set; }

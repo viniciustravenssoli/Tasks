@@ -12,7 +12,7 @@ public class RegisterUserUseCaseTest
 {
 
     [Fact]
-    public async Task ValidateSuccess()
+    public async System.Threading.Tasks.Task ValidateSuccess()
     {
         var request = RequestRegisterUserBuilder.Builder();
 
@@ -25,13 +25,13 @@ public class RegisterUserUseCaseTest
     }
 
     [Fact]
-    public async Task ValidateErrorEmailInUse()
+    public async System.Threading.Tasks.Task ValidateErrorEmailInUse()
     {
         var request = RequestRegisterUserBuilder.Builder();
 
         var useCase = CreateUseCase(request.Email);
 
-        Func<Task> action = async () => { await useCase.Execute(request); };
+        Func<System.Threading.Tasks.Task> action = async () => { await useCase.Execute(request); };
 
         await action.Should().ThrowAsync<ValidationErrorException>()
             .Where(exception => exception.ErrorMessages.Count == 1
@@ -39,14 +39,14 @@ public class RegisterUserUseCaseTest
     }
 
     [Fact]
-    public async Task ValidateErrorEmptyEmail()
+    public async System.Threading.Tasks.Task ValidateErrorEmptyEmail()
     {
         var request = RequestRegisterUserBuilder.Builder();
         request.Email = string.Empty;
 
         var useCase = CreateUseCase();
 
-        Func<Task> action = async () => { await useCase.Execute(request); };
+        Func<System.Threading.Tasks.Task> action = async () => { await useCase.Execute(request); };
 
         await action.Should().ThrowAsync<ValidationErrorException>()
             .Where(exception => exception.ErrorMessages.Count == 1

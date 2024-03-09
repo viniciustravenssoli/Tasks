@@ -12,7 +12,7 @@ namespace UseCase.Test.User.Login;
 public class LoginUserUseCaseTest
 {
     [Fact]
-    public async Task ValidateSuccess()
+    public async System.Threading.Tasks.Task ValidateSuccess()
     {
         (var user, var password) = UserBuilder.Builder();
 
@@ -30,13 +30,13 @@ public class LoginUserUseCaseTest
     }
 
     [Fact]
-    public async Task ValidateErrorInvalidPassword()
+    public async System.Threading.Tasks.Task ValidateErrorInvalidPassword()
     {
         (var user, var password) = UserBuilder.Builder();
 
         var useCase = CreateUseCase(user);
 
-        Func<Task> action = async () =>
+        Func<System.Threading.Tasks.Task> action = async () =>
         {
             await useCase.Execute(new RequestLogin
             {
@@ -50,13 +50,13 @@ public class LoginUserUseCaseTest
     }
 
     [Fact]
-    public async Task ValidateErrorInvalidEmail()
+    public async System.Threading.Tasks.Task ValidateErrorInvalidEmail()
     {
         (var user, var password) = UserBuilder.Builder();
 
         var useCase = CreateUseCase(user);
 
-        Func<Task> action = async () =>
+        Func<System.Threading.Tasks.Task> action = async () =>
         {
             await useCase.Execute(new RequestLogin
             {
@@ -70,13 +70,13 @@ public class LoginUserUseCaseTest
     }
 
     [Fact]
-    public async Task ValidateErrorInvalidEmailAndPassword()
+    public async System.Threading.Tasks.Task ValidateErrorInvalidEmailAndPassword()
     {
         (var user, var password) = UserBuilder.Builder();
 
         var useCase = CreateUseCase(user);
 
-        Func<Task> action = async () =>
+        Func<System.Threading.Tasks.Task> action = async () =>
         {
             await useCase.Execute(new RequestLogin
             {

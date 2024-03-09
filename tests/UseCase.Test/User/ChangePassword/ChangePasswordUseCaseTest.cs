@@ -13,12 +13,12 @@ namespace UseCase.Test.User.ChangePassword;
 public class ChangePasswordUseCaseTest
 {
     [Fact]
-    public async Task ValidateSuccess()
+    public async System.Threading.Tasks.Task ValidateSuccess()
     {
         (var user, var password) = UserBuilder.Builder();
         var useCase = CreateUseCase(user);
 
-        Func<Task> action = async () =>
+        Func<System.Threading.Tasks.Task> action = async () =>
         {
             await useCase.Executar(new RequestChangePassword
             {
@@ -31,12 +31,12 @@ public class ChangePasswordUseCaseTest
     }
 
     [Fact]
-    public async Task ValidateErroEmptyNewPassord()
+    public async System.Threading.Tasks.Task ValidateErroEmptyNewPassord()
     {
         (var user, var password) = UserBuilder.Builder();
         var useCase = CreateUseCase(user);
 
-        Func<Task> action = async () =>
+        Func<System.Threading.Tasks.Task> action = async () =>
         {
             await useCase.Executar(new RequestChangePassword
             {
@@ -55,7 +55,7 @@ public class ChangePasswordUseCaseTest
     [InlineData(3)]
     [InlineData(4)]
     [InlineData(5)]
-    public async Task ValidateErroMinimunPasswordLength(int passwordLength)
+    public async System.Threading.Tasks.Task ValidateErroMinimunPasswordLength(int passwordLength)
     {
         (var user, var password) = UserBuilder.Builder();
         var useCase = CreateUseCase(user);
@@ -63,7 +63,7 @@ public class ChangePasswordUseCaseTest
         var request = RequestChangePasswordBuilder.Builder(passwordLength);
         request.CurrentPassword = password;
 
-        Func<Task> action = async () =>
+        Func<System.Threading.Tasks.Task> action = async () =>
         {
             await useCase.Executar(request);
         };
@@ -73,7 +73,7 @@ public class ChangePasswordUseCaseTest
     }
 
     [Fact]
-    public async Task ValidateErroInvalidCurrentPassord()
+    public async System.Threading.Tasks.Task ValidateErroInvalidCurrentPassord()
     {
         (var user, var password) = UserBuilder.Builder();
         var useCase = CreateUseCase(user);
@@ -81,7 +81,7 @@ public class ChangePasswordUseCaseTest
         var request = RequestChangePasswordBuilder.Builder();
         request.CurrentPassword = "senhaInvalida";
 
-        Func<Task> action = async () =>
+        Func<System.Threading.Tasks.Task> action = async () =>
         {
             await useCase.Executar(request);
         };

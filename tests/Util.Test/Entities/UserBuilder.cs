@@ -23,4 +23,13 @@ public class UserBuilder
 
         return (generatedUser, password);
     }
+
+    public static (User usuario, string senha) Builder2()
+    {
+        (var usuario, var senha) = Builder();
+        usuario.Id = 2;
+
+        return (usuario, senha);
+    }
+
 }

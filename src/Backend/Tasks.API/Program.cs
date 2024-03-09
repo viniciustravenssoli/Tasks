@@ -92,3 +92,7 @@ void UpdateDB()
         app.MigrateDataBase();
     }
 }
+
+#pragma warning disable CA1050,  S3903, S1118
+public partial class Program { }
+#pragma warning restore CA1050, S3903, S1118

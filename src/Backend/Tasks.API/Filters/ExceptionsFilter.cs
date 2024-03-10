@@ -14,7 +14,7 @@ public class ExceptionsFilter : IExceptionFilter
     {
         if (context.Exception is TaskExecptions)
         {
-            DealLivroReceitasExceptions(context);
+            DealTaskExceptions(context);
         }
         else
         {
@@ -22,7 +22,7 @@ public class ExceptionsFilter : IExceptionFilter
         }
     }
 
-    private void DealLivroReceitasExceptions(ExceptionContext context)
+    private void DealTaskExceptions(ExceptionContext context)
     {
         if (context.Exception is ValidationErrorException)
         {

@@ -36,7 +36,7 @@ public class TaskController : BaseTaskController
     }
 
     [HttpPut]
-    [Route("GetAllFromUser")]
+    [Route("Pegar-Todas-Do-Usuario")]
     [ProducesResponseType(typeof(ResponseTaskAllFromUser), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     public async Task<IActionResult> RecuperarDashboard(

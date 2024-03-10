@@ -1,4 +1,4 @@
-# Nome da Sua Web API
+# Task API
 
 ## Descrição
 Esta é uma Web API construída em C# utilizando o framework .NET 8. Ela lida com operações relacionadas a usuários e tarefas. Cada usuário pode ter várias tarefas associadas a ele. O acesso aos dados do banco é realizado através do Entity Framework, e as migrações de banco de dados são gerenciadas com o FluentMigrator. A validação das entidades é feita utilizando FluentValidator, e exceções são tratadas de forma apropriada, não retornando detalhes sensíveis ou específicos do banco de dados.

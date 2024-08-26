@@ -34,7 +34,10 @@ public class GetAllFromUser : IGetAllFromUser
 
         return new ResponseTaskAllFromUser
         {
-            Tasks = responseTasks
+            Tasks = responseTasks,
+            PageNumber = request.PageNumber,
+            PageSize = request.PageSize,
+            TotalCount = tasks.Count,
         };
     }
 

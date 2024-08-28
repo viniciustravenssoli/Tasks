@@ -20,7 +20,7 @@ public class GetAllFromUser : IGetAllFromUser
     {
         var loggedUser = await _loggedUser.GetUser();
 
-        var tasks = await _repository.GetAllFromUser(loggedUser.Id);
+        var (tasks, totalCount) = await _repository.GetAllFromUserWithPagination(loggedUser.Id, request.PageNumber, request.PageSize);
 
         tasks = Filter(request, tasks);
 
@@ -35,9 +35,9 @@ public class GetAllFromUser : IGetAllFromUser
         return new ResponseTaskAllFromUser
         {
             Tasks = responseTasks,
+            TotalCount = totalCount,
             PageNumber = request.PageNumber,
-            PageSize = request.PageSize,
-            TotalCount = tasks.Count,
+            PageSize = request.PageSize
         };
     }
 

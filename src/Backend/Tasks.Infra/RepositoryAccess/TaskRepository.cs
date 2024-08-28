@@ -44,5 +44,18 @@ public class TaskRepository : ITaskReadOnlyRepository, ITaskWriteOnlyRepository,
         _context.Tasks.Remove(task);
     }
 
+    public async Task<(IList<Domain.Entities.Task>, int)> GetAllFromUserWithPagination(long userId, int pageNumber, int pageSize)
+    {
+        var query = _context.Tasks.Where(t => t.UserId == userId);
 
+        var totalCount = await query.CountAsync();
+
+        var tasks = await query
+            .Skip((pageNumber - 1) * pageSize)
+            .Take(pageSize)
+            .ToListAsync();
+
+        return (tasks, totalCount);
+
+    }
 }

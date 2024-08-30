@@ -27,7 +27,7 @@ public class AuthenticatedUserAttribute : AuthorizeAttribute, IAsyncAuthorizatio
             var token = OnRequestToken(context);
             var email = _tokenController.GetEmail(token);
 
-            var user = _userRepository.GetByEmail(email);
+            var user = await _userRepository.GetByEmail(email);
 
             if (user is null)
             {

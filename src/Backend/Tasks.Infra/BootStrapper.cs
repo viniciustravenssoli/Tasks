@@ -37,7 +37,8 @@ public static class BootStrapper
             services.AddDbContext<TaskContext>(options =>
             {
                 options.UseMySql(connectionString, serverVersion);
-            });
+            },
+            ServiceLifetime.Scoped);
         }
     }
 

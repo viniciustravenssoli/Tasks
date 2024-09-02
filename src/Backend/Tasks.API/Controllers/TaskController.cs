@@ -35,23 +35,24 @@ public class TaskController : BaseTaskController
         return NoContent();
     }
 
-    [HttpPut]
+    [HttpGet]
     [Route("Pegar-Todas-Do-Usuario")]
     [ProducesResponseType(typeof(ResponseTaskAllFromUser), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     public async Task<IActionResult> RecuperarDashboard(
-            [FromServices] IGetAllFromUser useCase,
-            [FromBody] RequestTasks request)
+        [FromServices] IGetAllFromUser useCase,
+        [FromQuery] RequestTasks request)
     {
         var result = await useCase.Execute(request);
 
-        if(result.Tasks.Any())
+        if (result.Tasks.Any())
         {
             return Ok(result);
         }
 
         return NoContent();
     }
+
 
     [HttpDelete]
     [Route("{id}")]

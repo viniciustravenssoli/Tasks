@@ -38,7 +38,7 @@ public class TaskController : BaseTaskController
     [HttpGet]
     [Route("Pegar-Todas-Do-Usuario")]
     [ProducesResponseType(typeof(ResponseTaskAllFromUser), StatusCodes.Status200OK)]
-    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> RecuperarDashboard(
         [FromServices] IGetAllFromUser useCase,
         [FromQuery] RequestTasks request)
@@ -50,9 +50,8 @@ public class TaskController : BaseTaskController
             return Ok(result);
         }
 
-        return NoContent();
+        return NotFound();
     }
-
 
     [HttpDelete]
     [Route("{id}")]

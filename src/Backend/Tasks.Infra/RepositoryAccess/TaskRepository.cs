@@ -44,19 +44,18 @@ public class TaskRepository : ITaskReadOnlyRepository, ITaskWriteOnlyRepository,
         _context.Tasks.Remove(task);
     }
 
-    public async Task<(IQueryable<Domain.Entities.Task>, int)> GetAllFromUserWithPagination(long userId, int pageNumber, int pageSize)
+    public async Task<(IList<Domain.Entities.Task>, int)> GetAllFromUserWithPagination(long userId, int pageNumber, int pageSize)
     {
         var query = _context.Tasks.AsQueryable().Where(t => t.UserId == userId);
     
         var totalCount = await query.CountAsync();
     
-        // Create a paged query
-        var pagedQuery = query
+        var tasks = await query
             .Skip((pageNumber - 1) * pageSize)
-            .Take(pageSize);
+            .Take(pageSize)
+            .ToListAsync();
     
-        // Note: We return the paged query instead of executing it here
-        return (pagedQuery, totalCount);
+        return (tasks, totalCount);
     }
 
 }
